@@ -23,35 +23,39 @@
 
 objdump, readelf 를 비롯한 대부분의 ELF parser 들은 corrupted 된 ELF header 에 대해서는 parsing을 하지 못하는 현상을 보인다.
 
+심지어 최근 readelf 에서는 Code execution vulnerability 까지 존재했었다.
+
 따라서 corrupted 된 ELF header에 대해서도 parsing을 잘 수행하는 ELF parser를 만드는 것이 목표이다.
 
 \section{Exercises}
 
-Describe a series of exercises that students will carry out. (학생들이 하게
-될 연습문제를 순차적으로 서술.)
+\begin{exercise} Parsing and print format
 
-\begin{exercise}
 
-  In this exercise, you do ...
-
-\end{exercise}
-
-\begin{exercise}
-
-  In this exercise, you do ...
+  ELF는 크게 ELF header, Program header, Section header의 header를 갖는다.
+  각각 header를 parsing 하여, 각 헤더의 종류, 존재하는 offset, 정보들을 일정 형식에 맞추어서 출력해주는
+  ELF parser를 만든다.
 
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} Parsing target
 
-  In this exercise, you do ...
+  Compiler 를 통해서 만든 정상적인 binary에 대해서는 당연히 parsing이 진행되어야 하고,
+  corrupted 된 ELF 들을 예시로 주어 이것들 또한 parsing 할 수 있도록 한다.
+
+\end{exercise}
+
+\begin{exercise}  Recover headers
+
+  2번에서 주어진 corrupted 된 ELF 들을 readelf, objdump 등과 같은 툴로도 parsing이 되는
+  ELF를 만들 수 있도록 한다.
 
 \end{exercise}
 
 \section{Expected Solutions}
 
 주어진 test case들을 모두 통과하는 ELF parser를 만들길 기대한다.
-
+또한 corrupted 된 ELF를 복구할 수 있길 기대한다.
 
 \bibliography{references}
 \bibliographystyle{plainnat}
